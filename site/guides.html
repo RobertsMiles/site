@@ -1,0 +1,227 @@
+<title>
+Miles’ Site
+</title>
+<p><a href="./index.html">Home</a> <a href="./guides.html">Guides</a> <a
+href="./music.html">Music</a></p>
+<hr />
+<h1 id="my-guides">My Guides</h1>
+<p>This is where I will post my guides and whatever else I feel like
+talking about. Everything is proudly written by me—no LLMs necessary!
+(yes, I actually typed that em-dash)</p>
+<hr />
+<h2
+id="reject-spotify-a-guide-to-self-hosted-music-posted-28-july-2025-updated-28-july-2025">Reject
+Spotify: A Guide to Self-Hosted Music<br><sup><sup>Posted: 28 July
+2025</sup></sup><br><sup><sup>Updated: 28 July 2025</sup></sup></h2>
+<p>This guide will teach you how to use how to use a few simple command
+line utilities to amass your very own offline music collection!</p>
+<details>
+<summary>
+Read More
+</summary>
+<h3 id="overview">Overview</h3>
+<p>We will be using <code>yt-dlp</code> and <code>beet</code> to
+download and organize our music. We can either play the collection
+directly off of our personal computer, or set up a streaming service on
+our home server! While this guide is primarily written for Linux users,
+things shouldn’t be too different for Windows/Mac users (other than the
+installation experience).</p>
+<h3 id="why-do-this">Why do this?</h3>
+<h4 id="ownership">Ownership</h4>
+<p>The main reason we might want to do this is for control. With music
+streaming, you do not own anything! These streaming services have every
+right to remove music on a whim, for any reason (often as mundane as
+licensing issues!).</p>
+<h4 id="ethics">Ethics</h4>
+<p>You might also find yourself disgruntled with Spotify, after their
+recent debacle with <a
+href="https://www.cnbc.com/2025/06/17/spotifys-daniel-ek-leads-investment-in-defense-startup-helsing.html">investing
+in AI war technologies</a>. This has led several notable artists to <a
+href="https://www.theguardian.com/music/2025/jul/26/king-gizzard-and-the-lizard-wizard-join-spotify-exodus-over-arms-industry-link-ntwnfb">leave
+the platform completely</a>.</p>
+<p>It is also worth noting that <a
+href="https://www.latimes.com/entertainment-arts/music/story/2021-04-19/spotify-artists-royalty-rate-apple-music">artists
+do not make much revenue from music streaming</a>, especially smaller
+artists!</p>
+<h4 id="finances">Finances</h4>
+<p>To be clear, I do not condone piracy! After all, the example in this
+tutorial will be using royalty-free music. And besides, think of the
+streaming companies’ shareholders!</p>
+<p>With that being said, this is the exact same process with all music,
+regardless of copyrights/royalties (don’t do it though, I will give you
+a slap on the wrist!).</p>
+<p>If you still <em>were</em> to do this, you might argue that <a
+href="https://www.pcgamer.com/gaming-industry/ultrakill-dev-says-its-fine-to-pirate-his-game-if-you-dont-have-money-to-spare-culture-shouldnt-exist-only-for-those-who-can-afford-it/">culture
+should not be behind a paywall</a>. It could also serve as a way to demo
+music before you purchase your own copy (such as CDs or Vinyl).</p>
+<h3 id="obtaining-the-music">Obtaining the Music</h3>
+<h4 id="physical-media">Physical Media</h4>
+<p>If you already own physical media of any kind, you are in luck!</p>
+<p>If you have CDs, use a computer’s CD player to rip the individual
+files. I would recommend ripping them in the FLAC format, which makes an
+exact (lossless) copy of the CD, as opposed to lossy formats like MP3 or
+OPUS. If you do not have much space or are alright with potential losses
+in quality, then lossy formats will save you a lot of space. If you want
+a lossy format, <a
+href="https://wiki.xiph.org/Opus_Recommended_Settings">OPUS at 128 KB/s
+is basically indistinguishable to the human ear</a>.</p>
+<p>Analog media (like vinyl or cassette tapes) are a bit more involved.
+You will need to play them through their respective devices, but with
+the output being routed either into your computer’s line-in or
+microphone port (I would only use the microphone port if you do not have
+a line-in, or do not have an amp/pre-amp). Then, you would use a program
+such as <a href="https://github.com/audacity/audacity">audacity</a> to
+record this playback and save it to a file (again, I would recommend
+FLAC if you have the space and OPUS at 128 KB/s if you don’t). Read <a
+href="https://manual.audacityteam.org/man/sample_workflow_for_tape_digitization.html">here</a>
+for ripping tapes with Audacity and <a
+href="https://manual.audacityteam.org/man/sample_workflow_for_lp_digitization.html">here</a>
+for ripping vinyl with Audacity. For these rips to work with the rest of
+the tutorial, make sure to split the recordings into individual tracks
+with their appropriate names.</p>
+<h4 id="downloaded-media">Downloaded Media</h4>
+<p>If you would like to purchase digital music from artists on the
+internet, you should check out <a
+href="https://bandcamp.com/">Bandcamp</a>!</p>
+<p>Otherwise, for music not already in physical possession, we will be
+using <a href="https://github.com/yt-dlp/yt-dlp">yt-dlp</a>. It is
+available in most package managers under the name <code>yt-dlp</code>
+(though <strong>be mindful</strong> that outdated versions often
+<strong>do not work right</strong> when trying to download from
+Youtube!). You can check if your version is recent by typing the command
+<code>yt-dlp --version</code>, which in my case returned
+<code>2025.06.30</code>. It should also be noted that ffmpeg must be
+installed for things to work properly. For more detailed installation
+instructions, see <a
+href="https://liassica.codeberg.page/posts/0001-yt-dlp/">here</a>.</p>
+<p>Now, on Youtube, find the album you would like (in this case we will
+use <a
+href="https://www.youtube.com/watch?v=eJ6QlglqkYA&amp;list=OLAK5uy_mdJyQFdloubaXxKxDzgmW5455z_lfCgtQ">Kevin
+MacLeod’s Polka! Polka! Polka!</a>). Go into the directory you would
+like this saved, and simply type
+<code>yt-dlp -x https://www.youtube.com/watch?v=eJ6QlglqkYA&amp;list=OLAK5uy_mdJyQFdloubaXxKxDzgmW5455z_lfCgtQ</code>
+(the <code>-x</code> tells the downloader to only save the audio, not
+the video as well).</p>
+<p>Now, if all went well, the tracks are now saved on your computer:</p>
+<pre><code>user@latitude ~/temp&gt; ls
+&#39;Double Polka [eJ6QlglqkYA].opus&#39;
+&#39;Dvorak Polka [GF9CSn3gMnE].opus&#39;
+&#39;Four Beers&#39;\&#39;&#39; Polka [qvhQzHEABGI].opus&#39;
+&#39;Glee Club Polka [oSbS4_J5ujg].opus&#39;
+&#39;Manic Polka [A-bWfr20PRo].opus&#39;
+&#39;No Spam Polka [J52o2NPuI-E].opus&#39;
+&#39;Pixel Peeker Polka - faster [JbspWYbuxgE].opus&#39;
+&#39;Pixel Peeker Polka - slower [mNIxHMYRPRw].opus&#39;
+&#39;Snare Bounce Polka [0uXtpW9wg4A].opus&#39;
+&#39;Spazzmatica Polka [vx2tQgtT1Tc].opus&#39;
+&#39;Super Polka [u1TfN3H2VCA].opus&#39;
+user@latitude ~/temp&gt; </code></pre>
+<h3 id="organizing-the-music">Organizing the Music</h3>
+<h4 id="installing-beets">Installing Beets</h4>
+<p>We may now have the music, but this can quickly become an unorganized
+mess! Not to mention that when opened in a media player, there is no
+track ordering, album cover, and other crucial metadata (with the
+exception of some CD rips)! Luckily, <a
+href="https://beets.readthedocs.io/">beets</a> will alleviate all of
+these problems! It is available with many package managers, with
+specific installation instructions on their website.</p>
+<h4 id="configuring-beets">Configuring Beets</h4>
+<p>To configure beets, type <code>beet config -e</code>. This is what my
+config currently looks like:</p>
+<pre><code>directory: /mnt/audio/music
+library: /mnt/audio/music/musiclibrary.db
+import:
+    move: yes
+    write: yes
+plugins:
+    chroma
+    fromfilename
+    fetchart
+    lyrics
+chroma:
+    auto: yes
+fetchart:
+    auto: yes
+lyrics:
+    auto: no
+    translate:
+    api_key:
+        from_languages: []
+        to_language:
+    dist_thresh: 0.11
+    fallback: null
+    force: no
+    google_API_key: null
+    google_engine_ID: 009217259823014548361:lndtuqkycfu
+    print: no
+    sources: [lrclib, google, genius, tekstowo]
+    synced: no</code></pre>
+<p>You should really read the <a
+href="https://beets.readthedocs.io/en/stable/guides/main.html">documentation</a>
+before using this program, but essentially, whenever I import music from
+any path on my system, this config will have the properly formatted
+music placed in <code>/mnt/audio/music</code>, with the unformatted
+music being deleted.</p>
+<h4 id="installing-chroma">Installing Chroma</h4>
+<p>Before we continue, one crucial plugin (also the hardest part) must
+be installed separately: <a
+href="https://beets.readthedocs.io/en/stable/plugins/chroma.html">chroma</a>.
+Chroma will ‘listen’ to each song and see if it sounds similar to any
+known songs (called fingerprinting). This is useful when the music being
+imported is poorly named/tagged, which can often happen with Youtube
+downloads.</p>
+<p>In addition to the chromaprint package you will also need to install
+an audio decoder. On my Fedora 42 system, I installed the
+<code>chromaprint-tools</code> package and already had ffmpeg installed.
+Assuming you are using my config, chroma will automatically run when you
+import new media.</p>
+<h4 id="importing-our-music">Importing Our Music</h4>
+<p>when running <code>beet import .</code> in our download directory, we
+get the following output:</p>
+<pre><code>user@latitude ~/temp&gt; beet import .
+
+/home/user/temp (11 items)
+
+  Match (75.4%):
+  Kevin MacLeod - Polka! Polka! Polka!
+  ≠ album, artist, tracks
+  MusicBrainz, Digital Media, 2014, XW, None, None, None
+  https://musicbrainz.org/release/4efbe3b0-3eb4-4c0f-93d0-a867ec5b396d
+  ≠ Artist:  -&gt; Kevin MacLeod
+     ≠ (#0) Double Polka [eJ6QlglqkYA] (3:42) -&gt; (#1) Double Polka (3:42)
+     ≠ (#0) Dvorak Polka [GF9CSn3gMnE] (1:45) -&gt; (#2) Dvorak Polka (1:45)
+     ≠ (#0) Four Beers&#39; Polka [qvhQzHEABGI] (2:27) -&gt; (#3) Four Beers’ Polka (2:27)
+     ≠ (#0) Glee Club Polka [oSbS4_J5ujg] (3:26) -&gt; (#4) Glee Club Polka (3:26)
+     ≠ (#0) Manic Polka [A-bWfr20PRo] (3:18) -&gt; (#5) Manic Polka (3:18)
+     ≠ (#0) No Spam Polka [J52o2NPuI-E] (3:22) -&gt; (#6) No Spam Polka (3:22)
+     ≠ (#0) Pixel Peeker Polka - faster [JbspWYbuxgE] (3:22) -&gt; (#7) Pixel Peeker Polka (faster) (3:22)
+     ≠ (#0) Pixel Peeker Polka - slower [mNIxHMYRPRw] (3:48) -&gt; (#8) Pixel Peeker Polka (slower) (3:48)
+     ≠ (#0) Snare Bounce Polka [0uXtpW9wg4A] (2:40) -&gt; (#9) Snare Bounce Polka (2:40)
+     ≠ (#0) Spazzmatica Polka [vx2tQgtT1Tc] (1:36) -&gt; (#10) Spazzmatica Polka (1:36)
+     ≠ (#0) Super Polka [u1TfN3H2VCA] (0:49) -&gt; (#11) Super Polka (0:49)
+➜ [A]pply, More candidates, Skip, Use as-is, as Tracks, Group albums,
+Enter search, enter Id, aBort? </code></pre>
+<p>Since everything looks correct, we will enter <code>A</code> as our
+response. Now we can see that all of the music is in the specified
+library directory, organized as ARTIST/ALBUM with consistent naming,
+metadata, and an album cover!</p>
+<pre><code>user@latitude /m/a/m/Kevin MacLeod&gt; pwd
+/mnt/audio/music/Kevin MacLeod
+user@latitude /m/a/m/Kevin MacLeod&gt; ls Polka!\ Polka!\ Polka!/
+&#39;01 Double Polka.opus&#39;       &#39;07 Pixel Peeker Polka (faster).opus&#39;
+&#39;02 Dvorak Polka.opus&#39;       &#39;08 Pixel Peeker Polka (slower).opus&#39;
+&#39;03 Four Beers’ Polka.opus&#39;  &#39;09 Snare Bounce Polka.opus&#39;
+&#39;04 Glee Club Polka.opus&#39;    &#39;10 Spazzmatica Polka.opus&#39;
+&#39;05 Manic Polka.opus&#39;        &#39;11 Super Polka.opus&#39;
+&#39;06 No Spam Polka.opus&#39;       cover.jpg
+user@latitude /m/a/m/Kevin MacLeod&gt; </code></pre>
+<h3 id="enjoying-the-music">Enjoying the Music!</h3>
+<ul>
+<li>album-oriented music players</li>
+</ul>
+<h3 id="optional-streaming-the-music">Optional: Streaming the Music</h3>
+<ul>
+<li>navidrome</li>
+</ul>
+</details>
+<hr />
