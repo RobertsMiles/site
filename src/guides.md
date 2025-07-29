@@ -177,3 +177,5 @@ Since everything looks correct, we will enter `A` as our response. Now we can se
 </details>
 
 ---
+
+Copyright © 2025 Miles Roberts – [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
