@@ -6,7 +6,7 @@
 
 # My Guides
 
-This is where I will post my guides and whatever else I feel like talking about. Everything is proudly written by me—no LLMs necessary! (yes, I actually typed that em-dash)
+This is where I will post my guides and whatever else I feel like talking about. Everything is proudly written by me—no LLMs necessary! (yes, that is my own em-dash)
 
 ---
 
