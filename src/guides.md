@@ -8,6 +8,8 @@
 
 This is where I will post my guides and whatever else I feel like talking about. Everything is proudly written by me—no LLMs necessary! (yes, that is my own em-dash)
 
+If you find any inaccuracies, please let me know!
+
 ---
 
 ## Reject Spotify: A Guide to Self-Hosted Music<br><sup><sup>Posted: 28 July 2025</sup></sup><br><sup><sup>Updated: 28 July 2025</sup></sup>
