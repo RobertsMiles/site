@@ -26,4 +26,4 @@ I plan to post my guides and thoughts [here](./blogs.html), so stay tuned :)
 
 ---
 
-Copyright © 2025 Miles Roberts – [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+<p style="text-align: center;">Copyright © 2025 Miles Roberts – [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)</p>
