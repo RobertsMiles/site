@@ -19,10 +19,8 @@ I plan to post my guides and thoughts [here](./blogs.html), so stay tuned :)
 
 ## Todo
 * flesh out music
-* flesh out guides
 * add lovely css
 * set up RSS support
-* add content and source licenses
 
 ---
 
