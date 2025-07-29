@@ -13,7 +13,7 @@ I plan to post my guides and thoughts [here](./blogs.html), so stay tuned :)
 
 ## Links
 * [My Github](https://github.com/RobertsMiles)
-* SOURCE CODE OF THIS SITE
+* [Source code of this site](https://github.com/RobertsMiles/site)
 
 ---
 
