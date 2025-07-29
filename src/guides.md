@@ -12,7 +12,7 @@ If you find any inaccuracies, please let me know!
 
 ---
 
-## Reject Spotify: A Guide to Self-Hosted Music<br><sup><sup>Posted: 28 July 2025</sup></sup><br><sup><sup>Updated: 28 July 2025</sup></sup>
+## Reject Spotify: A Guide to Self-Hosted Music<br><sup><sup>Posted: 28 July 2025</sup></sup><br><sup><sup>Updated: 29 July 2025</sup></sup>
 
 This guide will teach you how to use how to use a few simple command line utilities to amass your very own offline music collection!
 
@@ -116,6 +116,8 @@ To configure beets, type `beet config -e`. This is what my config currently look
         print: no
         sources: [lrclib, google, genius, tekstowo]
         synced: no
+        
+Keep in mind that this config is a work in progress! For example, I don't think that the lyrics downloader is working, but I don't care enough to fix it.
 
 You should really read the [documentation](https://beets.readthedocs.io/en/stable/guides/main.html) before using this program, but essentially, whenever I import music from any path on my system, this config will have the properly formatted music placed in `/mnt/audio/music`, with the unformatted music being deleted.
 
@@ -168,11 +170,11 @@ Since everything looks correct, we will enter `A` as our response. Now we can se
 
 ### Enjoying the Music!
 
-* album-oriented music players
+Now that we have an organized library, it is time to enjoy it! You could use most any music player, but I quite like [Strawberry](https://github.com/strawberrymusicplayer/strawberry). If you want something simpler to look at, there is also the [Gnome Music Player](https://apps.gnome.org/Music/).
 
 ### Optional: Streaming the Music
 
-* navidrome
+If you have your own server, you can also store the music there and stream to your various devices. I use [Navidrome](https://www.navidrome.org), which is very quick and lightweight. Navidrome uses the [Subsonic API](https://www.navidrome.org/docs/developers/subsonic-api/), which many music players, including Strawberry, support. The music steaming client I have been using with Navidrome is [Supersonic](https://github.com/dweymouth/supersonic), as I find that it works well and has a lovely interface.
 
 </details>
 

@@ -11,9 +11,9 @@ talking about. Everything is proudly written by me—no LLMs necessary!
 <p>If you find any inaccuracies, please let me know!</p>
 <hr />
 <h2
-id="reject-spotify-a-guide-to-self-hosted-music-posted-28-july-2025-updated-28-july-2025">Reject
+id="reject-spotify-a-guide-to-self-hosted-music-posted-28-july-2025-updated-29-july-2025">Reject
 Spotify: A Guide to Self-Hosted Music<br><sup><sup>Posted: 28 July
-2025</sup></sup><br><sup><sup>Updated: 28 July 2025</sup></sup></h2>
+2025</sup></sup><br><sup><sup>Updated: 29 July 2025</sup></sup></h2>
 <p>This guide will teach you how to use how to use a few simple command
 line utilities to amass your very own offline music collection!</p>
 <details>
@@ -156,7 +156,11 @@ lyrics:
     google_engine_ID: 009217259823014548361:lndtuqkycfu
     print: no
     sources: [lrclib, google, genius, tekstowo]
-    synced: no</code></pre>
+    synced: no
+    </code></pre>
+<p>Keep in mind that this config is a work in progress! For example, I
+don’t think that the lyrics downloader is working, but I don’t care
+enough to fix it.</p>
 <p>You should really read the <a
 href="https://beets.readthedocs.io/en/stable/guides/main.html">documentation</a>
 before using this program, but essentially, whenever I import music from
@@ -217,13 +221,21 @@ user@latitude /m/a/m/Kevin MacLeod&gt; ls Polka!\ Polka!\ Polka!/
 &#39;06 No Spam Polka.opus&#39;       cover.jpg
 user@latitude /m/a/m/Kevin MacLeod&gt; </code></pre>
 <h3 id="enjoying-the-music">Enjoying the Music!</h3>
-<ul>
-<li>album-oriented music players</li>
-</ul>
+<p>Now that we have an organized library, it is time to enjoy it! You
+could use most any music player, but I quite like <a
+href="https://github.com/strawberrymusicplayer/strawberry">Strawberry</a>.
+If you want something simpler to look at, there is also the <a
+href="https://apps.gnome.org/Music/">Gnome Music Player</a>.</p>
 <h3 id="optional-streaming-the-music">Optional: Streaming the Music</h3>
-<ul>
-<li>navidrome</li>
-</ul>
+<p>If you have your own server, you can also store the music there and
+stream to your various devices. I use <a
+href="https://www.navidrome.org">Navidrome</a>, which is very quick and
+lightweight. Navidrome uses the <a
+href="https://www.navidrome.org/docs/developers/subsonic-api/">Subsonic
+API</a>, which many music players, including Strawberry, support. The
+music steaming client I have been using with Navidrome is <a
+href="https://github.com/dweymouth/supersonic">Supersonic</a>, as I find
+that it works well and has a lovely interface.</p>
 </details>
 <hr />
 <p style="text-align: center;">
