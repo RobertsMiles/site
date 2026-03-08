@@ -12,7 +12,39 @@ If you find any inaccuracies, please let me know!
 
 ---
 
-## Reject Spotify: A Guide to Self-Hosted Music<br><sup><sup>Posted: 28 July 2025</sup></sup><br><sup><sup>Updated: 29 July 2025</sup></sup>
+## Designing a Website, the Easy Way! <br><sup><sup>Posted: 19 September 2025</sup></sup><br><sup><sup>Updated: 19 September 2025</sup></sup>
+
+This quick guide will demonstrate how to write a simple website without ever touching an html file!
+
+<details>
+
+<summary>Read More</summary>
+
+### Intro
+
+A brief disclaimer: I know nothing about web design! This very well may be a horrible way of doing things, but it works for me right now, so I thought I'd share.
+
+Also, I am assuming that you already have a domain pulling html files from somewhere.
+
+## Instructions
+
+I do not like looking at raw HTML! The obvious solution: write everything in markdown! It turns out it is quite trivial to convert markdown files to html. Here I have written a little bash script that converts the markdown files under `src` into html files under `site`. Eventually I will replace this with a makefile.
+
+    #!/bin/bash
+
+    mkdir -p site
+    for file in src/*.md; do
+        base=$(basename "$file" .md)
+        pandoc -f markdown "$file" -o "site/${base}.html"
+    done
+
+When markdown doesn't support a feature
+
+</details>
+
+---
+
+## Reject Spotify: A Guide to Self-Hosted Music<br><sup><sup>Posted: 28 July 2025</sup></sup><br><sup><sup>Updated: 8 March 2026</sup></sup>
 
 This guide will teach you how to use how to use a few simple command line utilities to amass your very own offline music collection!
 
@@ -62,7 +94,7 @@ Otherwise, for music not already in physical possession, we will be using [yt-dl
 
 Now, on Youtube, find the album you would like (in this case we will use [Kevin MacLeod's Polka! Polka! Polka!](https://www.youtube.com/watch?v=eJ6QlglqkYA&list=OLAK5uy_mdJyQFdloubaXxKxDzgmW5455z_lfCgtQ)). Go into the directory you would like this saved, and simply type `yt-dlp -x https://www.youtube.com/watch?v=eJ6QlglqkYA&list=OLAK5uy_mdJyQFdloubaXxKxDzgmW5455z_lfCgtQ` (the `-x` tells the downloader to only save the audio, not the video as well).
 
-Now, if all went well, the tracks are now saved on your computer:
+Now, if all went well, the tracks are saved on your computer:
 
     user@latitude ~/temp> ls
     'Double Polka [eJ6QlglqkYA].opus'
@@ -88,8 +120,8 @@ We may now have the music, but this can quickly become an unorganized mess! Not 
 
 To configure beets, type `beet config -e`. This is what my config currently looks like:
 
-    directory: /mnt/audio/music
-    library: /mnt/audio/music/musiclibrary.db
+    directory: /mnt/media/audio/music
+    library: /mnt/media/audio/music/musiclibrary.db
     import:
         move: yes
         write: yes
@@ -98,6 +130,7 @@ To configure beets, type `beet config -e`. This is what my config currently look
         fromfilename
         fetchart
         lyrics
+        musicbrainz
     chroma:
         auto: yes
     fetchart:
@@ -105,7 +138,7 @@ To configure beets, type `beet config -e`. This is what my config currently look
     lyrics:
         auto: no
         translate:
-	    api_key:
+        api_key:
             from_languages: []
             to_language:
         dist_thresh: 0.11
