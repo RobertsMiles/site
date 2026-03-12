@@ -1,2 +1,11 @@
-future article:
+future articles:
 Ditching A Sinking Ship: Migrating My Server From TrueNAS to NixOS!
+Designing a Website, the Easy Way!
+
+TODO:
+flesh out music
+add lovely css
+set up RSS support
+separate guide markdown files
+
+
