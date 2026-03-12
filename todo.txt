@@ -1,0 +1,2 @@
+future article:
+Ditching A Sinking Ship: Migrating My Server From TrueNAS to NixOS!

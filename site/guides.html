@@ -10,10 +10,11 @@ talking about. Everything is proudly written by me—no LLMs necessary!
 (yes, that is my own em-dash)</p>
 <p>If you find any inaccuracies, please let me know!</p>
 <hr />
+<hr />
 <h2
-id="reject-spotify-a-guide-to-self-hosted-music-posted-28-july-2025-updated-29-july-2025">Reject
+id="reject-spotify-a-guide-to-self-hosted-music-posted-28-july-2025-updated-8-march-2026">Reject
 Spotify: A Guide to Self-Hosted Music<br><sup><sup>Posted: 28 July
-2025</sup></sup><br><sup><sup>Updated: 29 July 2025</sup></sup></h2>
+2025</sup></sup><br><sup><sup>Updated: 8 March 2026</sup></sup></h2>
 <p>This guide will teach you how to use how to use a few simple command
 line utilities to amass your very own offline music collection!</p>
 <details>
@@ -103,7 +104,7 @@ like this saved, and simply type
 <code>yt-dlp -x https://www.youtube.com/watch?v=eJ6QlglqkYA&amp;list=OLAK5uy_mdJyQFdloubaXxKxDzgmW5455z_lfCgtQ</code>
 (the <code>-x</code> tells the downloader to only save the audio, not
 the video as well).</p>
-<p>Now, if all went well, the tracks are now saved on your computer:</p>
+<p>Now, if all went well, the tracks are saved on your computer:</p>
 <pre><code>user@latitude ~/temp&gt; ls
 &#39;Double Polka [eJ6QlglqkYA].opus&#39;
 &#39;Dvorak Polka [GF9CSn3gMnE].opus&#39;
@@ -129,8 +130,8 @@ specific installation instructions on their website.</p>
 <h4 id="configuring-beets">Configuring Beets</h4>
 <p>To configure beets, type <code>beet config -e</code>. This is what my
 config currently looks like:</p>
-<pre><code>directory: /mnt/audio/music
-library: /mnt/audio/music/musiclibrary.db
+<pre><code>directory: /mnt/media/audio/music
+library: /mnt/media/audio/music/musiclibrary.db
 import:
     move: yes
     write: yes
@@ -139,6 +140,7 @@ plugins:
     fromfilename
     fetchart
     lyrics
+    musicbrainz
 chroma:
     auto: yes
 fetchart:

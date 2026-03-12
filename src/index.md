@@ -21,6 +21,7 @@ I plan to post my guides and thoughts [here](./blogs.html), so stay tuned :)
 * flesh out music
 * add lovely css
 * set up RSS support
+* separate guide markdown files
 
 ---
 
