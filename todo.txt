@@ -7,5 +7,5 @@ flesh out music
 add lovely css
 set up RSS support
 separate guide markdown files
-
+add a few artists per genre as examples of music i like
 
