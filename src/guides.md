@@ -1,9 +1,3 @@
-<title>Miles' Site</title>
-
-[Home](./index.html) [Guides](./guides.html) [Music](./music.html)
-
----
-
 # My Guides
 
 This is where I will post my guides and whatever else I feel like talking about. Everything is proudly written by me—no LLMs necessary! (yes, that is my own em-dash)
@@ -180,7 +174,3 @@ Now that we have an organized library, it is time to enjoy it! You could use mos
 If you have your own server, you can also store the music there and stream to your various devices. I use [Navidrome](https://www.navidrome.org), which is very quick and lightweight. Navidrome uses the [Subsonic API](https://www.navidrome.org/docs/developers/subsonic-api/), which many music players, including Strawberry, support. The music steaming client I have been using with Navidrome is [Supersonic](https://github.com/dweymouth/supersonic), as I find that it works well and has a lovely interface.
 
 </details>
-
----
-
-<p style="text-align: center;">Copyright © 2025 Miles Roberts – [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)</p>
